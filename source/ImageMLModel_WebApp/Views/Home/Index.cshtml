@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Image Prediction";
+}
+
+<h2>Image Prediction</h2>
+
+<form asp-action="Predict" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <label for="imageFile">Select Image:</label>
+    <input type="file" id="imageFile" name="imageFile" accept="image/*" required />
+    <button type="submit">Predict</button>
+</form>
+
+@if (ViewBag.Prediction != null)
+{
+    <h3>Prediction Result:</h3>
+    <pre>@ViewBag.Prediction</pre>
+}
